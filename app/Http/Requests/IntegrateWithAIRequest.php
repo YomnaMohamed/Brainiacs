@@ -3,9 +3,8 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Validation\Rules\Password;
 
-class LoginDoctorRequest extends FormRequest
+class IntegrateWithAIRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -25,8 +24,8 @@ class LoginDoctorRequest extends FormRequest
     public function rules()
     {
         return [
-            'email' => 'required|email|min:3|max:255',
-            'password' => ['required', Password::defaults()]
+            'attachment' => 'required|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'disease_category' => 'required|in:schizophrenia,epilepsy'
         ];
     }
 }

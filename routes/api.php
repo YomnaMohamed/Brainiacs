@@ -13,6 +13,7 @@ use App\Http\Controllers\FeedbackController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RecordController;
 use App\Http\Controllers\SlotController;
+use App\Http\Controllers\IntegrateWithAIController;
 use Symfony\Component\HttpKernel\Profiler\Profile;
 
 /// public routes
@@ -29,6 +30,9 @@ Route::post('/doctor/login', [DoctorAuth::class, 'login'])->name('doctor.login')
 // diseases
 Route::get('/diseases', [DiseaseController::class, 'index'])->name('diseases.get');
 Route::post('/diseases', [DiseaseController::class, 'store'])->name('diseases.add');
+
+// check
+Route::post('/check', [IntegrateWithAIController::class, 'check'])->name('check');
 
 
 /// protected routes
